@@ -14,6 +14,11 @@ const uri =
 app.get("/", (req,res) => {
   res.send("Hello");
 })
+
+app.get("/register" , async (req,res) => {
+  let data=await UserModel.find({});
+  res.send(data);
+})
 app.post("/register", (req, res) => {
   let data = req.body;
   const user = new UserModel(data);
